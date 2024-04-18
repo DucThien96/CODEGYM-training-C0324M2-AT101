@@ -6,6 +6,8 @@ import java.util.Scanner;
 
 
 
+
+
 public class ProductManager {
     private ArrayList<Product> products;
     public static final String FILE_NAME = "product.csv";
@@ -45,7 +47,7 @@ public class ProductManager {
         System.out.println("product price:");
         price = scanner.nextDouble();
 
-        Product product = new Product(id, name, price);
+        Product product = new Product(id, price, name);
         return product;
     }
     public ArrayList<Product> getProducts () { return products; }
@@ -203,7 +205,8 @@ private int inputId() {
         }
         for (String line: listLine){
             String[] lineSplit = line.split(COMMA);
-            Product product = new Product(Integer.parseInt(lineSplit[0]),lineSplit[1],Double.parseDouble(lineSplit[2]));
+            System.out.println(lineSplit);
+            Product product = new Product(Integer.parseInt(lineSplit[0]),Double.parseDouble(lineSplit[1]),lineSplit[2]);
             productList.add(product);
         }
         return productList;
